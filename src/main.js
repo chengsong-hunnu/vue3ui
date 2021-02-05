@@ -1,12 +1,13 @@
-import Vue from 'vue'
+import { createApp } from 'vue';
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+
+const app = createApp(App)
+// 关闭vue自带的控制台提示信息
+app.config.productionTip = false;
+app.use(router).use(store).use(Antd).mount('#app')
